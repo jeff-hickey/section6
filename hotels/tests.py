@@ -8,7 +8,6 @@ from .views import _search
 
 from .models import Hotel, Room
 
-
 class HotelCase(TestCase):
 
     def setUp(self):
