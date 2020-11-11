@@ -15,7 +15,6 @@ class HotelCase(TestCase):
         self.user = User.objects.create(username='test')
         self.user.set_password('test')
         self.user.save()
-
         self.room_1 = Room.objects.create(label="King Suite", room_number=401,
                                           room_price=350)
         self.room_2 = Room.objects.create(label="Queen Suite", room_number=320,
