@@ -3,6 +3,8 @@ import json
 from django.contrib.auth.models import User
 from django.test import Client, TestCase
 from django.urls import reverse
+from termcolor import colored
+
 from .views import _search
 
 from .models import Hotel, Room
@@ -36,6 +38,7 @@ class HotelCase(TestCase):
         for room in data["rooms"]:
             assert room["label"] in ['King Suite', 'Queen Suite']
             assert room["number"] in [401, 320]
+        print(colored('test_room_price\t', 'red'), colored('Ok.', 'green'))
 
     def test_hotel_rooms(self):
         # User who is not logged in will be redirected.
@@ -46,6 +49,7 @@ class HotelCase(TestCase):
         # User who is logged in can look at rooms.
         response = self.client.get(f"/rooms/{self.hotel.id}")
         self.assertEqual(response.status_code, 200)
+        print(colored('test_hotel_rooms\t', 'red'), colored('Ok.', 'green'))
 
     def test_search(self):
         # Hotels with keyword in the title.
@@ -53,3 +57,4 @@ class HotelCase(TestCase):
         # We created one matching hotel in setUp()
         self.assertTrue(len(search), 1)
         self.assertEquals(search[0].hotel_name, "Comfort Hotel")
+        print(colored('test_search\t\t', 'red'), colored('Ok.', 'green'))

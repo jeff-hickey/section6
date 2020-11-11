@@ -78,3 +78,4 @@ websocket-client==0.57.0
 Werkzeug==0.16.0
 whitenoise==5.0.1
 zipp==3.3.0
+chromedriver_py==86.0.4240.193
