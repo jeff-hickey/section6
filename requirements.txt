@@ -1,3 +1,2 @@
 selenium==3.141.0
-termcolor==1.1.0
 chromedriver_py==86.0.4240.193
