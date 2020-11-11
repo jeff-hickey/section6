@@ -7,7 +7,7 @@
         <form action="{% url 'search_form' %}" method="post">
             {% csrf_token %}
             <input type="text" name="keyword">
-            <input type="submit">
+            <input type="submit" name="search">
         </form>
         <ul>
             {% if hotels %}
@@ -19,6 +19,6 @@
         </p>
         <h4><a href="{% url 'logout' %}">Logout Here.</a></h4>
     {% else %}
-        <h4><a href="{% url 'login' %}">Please Login to search.</a></h4>
+        <h4><a href="{% url 'login' %}" id="login_first">Please Login to search.</a></h4>
     {% endif %}
 {% endblock %}

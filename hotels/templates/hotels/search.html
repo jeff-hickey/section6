@@ -6,7 +6,7 @@
             {% for hotel in results %}
                 <li><h2>{{ hotel }}</h2>
                     <p>{{ hotel.about_hotel }}
-                        <a href="{% url 'rooms' hotel.id %}">View Rooms >></a>
+                        <a href="{% url 'rooms' hotel.id %}" id="rooms-{{ hotel.id }}">View Rooms >></a>
                     </p>
                 </li>
             {% endfor %}
