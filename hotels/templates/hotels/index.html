@@ -1,0 +1,24 @@
+{% extends "hotels/layout.html" %}
+{% block body %}
+    <h1>Welcome to Hotel Search.</h1>
+    {% if user.is_authenticated %}
+        {{ message }}
+        <p>
+        <form action="{% url 'search_form' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="keyword">
+            <input type="submit">
+        </form>
+        <ul>
+            {% if hotels %}
+                {% for hotel in hotels %}
+                    <li>{{ hotel }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+        </p>
+        <h4><a href="{% url 'logout' %}">Logout Here.</a></h4>
+    {% else %}
+        <h4><a href="{% url 'login' %}">Please Login to search.</a></h4>
+    {% endif %}
+{% endblock %}

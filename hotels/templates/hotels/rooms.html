@@ -1,0 +1,34 @@
+{% extends "hotels/layout.html" %}
+{% load static %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'hotels/rooms.js' %}"></script>
+    <!--  Flatpicker  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+    <!-- React -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel" src="{% static 'hotels/prices.js' %}"></script>
+{% endblock %}
+{% block body %}
+    <h1>{{ hotel.hotel_name }}.</h1>
+    <h2>Rooms & Prices</h2>
+    <ul>
+        {% if rooms %}
+            {% for room in rooms %}
+                <li>{{ room }} </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <div id="app"></div>
+    <h2>Attractions Nearby</h2>
+    <div id="attractions"></div>
+    <div>
+        <h3>Ready to Book?</h3>
+        <button id="book" data-color="red">Book Hotel.</button>
+    </div>
+    <p><a href="{% url 'index' %}"><< Back to Welcome Page </a></p>
+
+{% endblock %}
+

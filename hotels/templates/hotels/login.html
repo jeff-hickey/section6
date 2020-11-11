@@ -1,0 +1,14 @@
+{% extends "hotels/layout.html" %}
+{% block body %}
+    <h1>Login to Search Here.</h1>
+    {{ message }}
+    <p>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+    </form>
+    </p>
+    <p><a href="{% url 'index' %}"><< Back to Welcome.</a></p>
+{% endblock %}

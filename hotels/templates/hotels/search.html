@@ -1,0 +1,16 @@
+{% extends "hotels/layout.html" %}
+{% block body %}
+    <h1>Hotel Search Results.</h1>
+    <ul>
+        {% if results %}
+            {% for hotel in results %}
+                <li><h2>{{ hotel }}</h2>
+                    <p>{{ hotel.about_hotel }}
+                        <a href="{% url 'rooms' hotel.id %}">View Rooms >></a>
+                    </p>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <p><a href="{% url 'index' %}"><< Back to Hotel List</a></p>
+{% endblock %}
