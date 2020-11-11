@@ -28,3 +28,4 @@ class TestWholeFlow():
         self.driver.find_element(By.LINK_TEXT, "View Rooms >>").click()
         self.driver.find_element(By.ID, "book").click()
         assert self.driver.switch_to.alert.text == "Thank you. Room is booked."
+        print('OK SELENIUM')
