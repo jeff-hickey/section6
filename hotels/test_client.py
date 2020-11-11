@@ -3,7 +3,6 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from termcolor import colored
 
 
 class TestWholeFlow(unittest.TestCase):
@@ -34,8 +33,7 @@ class TestWholeFlow(unittest.TestCase):
         self.driver.find_element(By.ID, "rooms-1").click()
         self.driver.find_element(By.ID, "book").click()
         assert self.driver.switch_to.alert.text == "Thank you. Room is booked."
-        print(colored('Selenium Client Tests:', 'red'),
-              colored(' OK', 'green'))
+        print('Selenium Client: OK')
 
 
 if __name__ == "__main__":
